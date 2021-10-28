@@ -102,5 +102,4 @@ public class Patient implements Serializable {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
-
 }

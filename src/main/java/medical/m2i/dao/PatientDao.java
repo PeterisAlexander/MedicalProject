@@ -25,7 +25,7 @@ public class PatientDao {
 		String user = db.getProperty("user");
 		String password = db.getProperty("password");
 
-		String INSERT_USERS_SQL = "INSERT INTO patient" + "  (nom, prenom, naissance, adresse, pays, ville) VALUES "
+		String INSERT_PATIENTS_SQL = "INSERT INTO patient" + "  (nom, prenom, naissance, adresse, pays, ville) VALUES "
 				+ " (?, ?, ?, ?,?,?);";
 
 		int result = 0;
@@ -33,12 +33,8 @@ public class PatientDao {
 		Class.forName("com.mysql.jdbc.Driver");
 
 		try (Connection connection = DriverManager.getConnection(url, user, password);
-
-//		try (Connection connection = DriverManager.getConnection(url, user, password);
-
 				// Creation du statement utilise pour la connection object
-				PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)) {
-//			preparedStatement.setInt(1, 1);
+				PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PATIENTS_SQL)) {
 			preparedStatement.setString(1, patient.getNom());
 			preparedStatement.setString(2, patient.getPrenom());
 			preparedStatement.setString(3, patient.getNaissance().toString());
