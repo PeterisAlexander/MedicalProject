@@ -20,6 +20,31 @@ public class Patient implements Serializable {
 	private String ville;
 
 	/**
+	 * 
+	 */
+	public Patient() {
+		super();
+	}
+
+	/**
+	 * @param nom
+	 * @param prenom
+	 * @param naissance
+	 * @param adresse
+	 * @param pays
+	 * @param ville
+	 */
+	public Patient(String nom, String prenom, String naissance, String adresse, String pays, String ville) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.naissance = naissance;
+		this.adresse = adresse;
+		this.pays = pays;
+		this.ville = ville;
+	}
+
+	/**
 	 * @return the nom
 	 */
 	public String getNom() {
