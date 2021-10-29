@@ -50,21 +50,22 @@ public class ListPatientServlet extends HttpServlet {
 		out.println(" <button type=\"button\" id=\"add-btn\">Nouveau patient</button>");
 		out.println(" <div class=\"clear\"></div>");
 		out.println("  <table width=\"100%\" cellpadding=\"5\" cellspacing=\"0\">");
-		out.println("<thead>\r\n" + "                <tr>\r\n" + "                    <th>Nom</th>\r\n"
-				+ "                    <th>Prénom</th>\r\n" + "                    <th>Naissance</th>\r\n"
-				+ "                    <th>Adresse</th>\r\n" + "                    <th>Pays</th>\r\n"
-				+ "                    <th>Ville</th>\r\n"
+		out.println("<thead>\r\n" + "                <tr>\r\n" + "                    <th>ID</th>\r\n"
+				+ "                    <th>Nom</th>\r\n" + "                    <th>Prénom</th>\r\n"
+				+ "                    <th>Naissance</th>\r\n" + "                    <th>Adresse</th>\r\n"
+				+ "                    <th>Pays</th>\r\n" + "                    <th>Ville</th>\r\n"
 				+ "                    <th><i class=\"fa fa-cogs\" aria-hidden=\"true\"></i></th>\r\n"
 				+ "                </tr>\r\n" + "            </thead>");
 		out.println("<tbody>");
 
 		try {
 			for (Patient p : patientDao.getPatients()) {
-				out.println("<tr>\r\n" + "                    <td>" + p.getNom() + "</td>\r\n"
-						+ "                    <td>" + p.getPrenom() + "</td>\r\n" + "                    <td>"
-						+ p.getNaissance() + "</td>\r\n" + "                    <td>" + p.getAdresse() + "</td>\r\n"
-						+ "                    <td>" + p.getPays() + "</td>\r\n" + "                    <td>"
-						+ p.getVille() + "</td>\r\n" + "                    <td>\r\n"
+				out.println("<tr>\r\n" + "                    <td>" + p.getId() + "</td>\r\n"
+						+ "                    <td>" + p.getNom() + "</td>\r\n" + "                    <td>"
+						+ p.getPrenom() + "</td>\r\n" + "                    <td>" + p.getNaissance() + "</td>\r\n"
+						+ "                    <td>" + p.getAdresse() + "</td>\r\n" + "                    <td>"
+						+ p.getPays() + "</td>\r\n" + "                    <td>" + p.getVille() + "</td>\r\n"
+						+ "                    <td>\r\n"
 						+ "                        <button type=\"button\" class=\"btn-action\"><i class=\"fa fa-pencil-square-o\"\r\n"
 						+ "                                aria-hidden=\"true\"></i></button>\r\n"
 						+ "                        <button type=\"button\" class=\"btn-action\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></button>\r\n"

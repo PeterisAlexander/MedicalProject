@@ -12,6 +12,7 @@ import java.io.Serializable;
 public class Patient implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	private Integer id;
 	private String nom;
 	private String prenom;
 	private String naissance;
@@ -24,6 +25,26 @@ public class Patient implements Serializable {
 	 */
 	public Patient() {
 		super();
+	}
+
+	/**
+	 * @param id
+	 * @param nom
+	 * @param prenom
+	 * @param naissance
+	 * @param adresse
+	 * @param pays
+	 * @param ville
+	 */
+	public Patient(Integer id, String nom, String prenom, String naissance, String adresse, String pays, String ville) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.naissance = naissance;
+		this.adresse = adresse;
+		this.pays = pays;
+		this.ville = ville;
 	}
 
 	/**
@@ -42,6 +63,20 @@ public class Patient implements Serializable {
 		this.adresse = adresse;
 		this.pays = pays;
 		this.ville = ville;
+	}
+
+	/**
+	 * @return the id
+	 */
+	public Integer getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	/**

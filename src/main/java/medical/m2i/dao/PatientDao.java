@@ -81,11 +81,12 @@ public class PatientDao {
 			ResultSet resultSet = statement.executeQuery(GET_ALL_PATIENT);
 
 			while (resultSet.next()) {
-				Patient patient = new Patient(resultSet.getString("nom"), resultSet.getString("prenom"),
-						resultSet.getString("naissance"), resultSet.getString("adresse"), resultSet.getString("pays"),
-						resultSet.getString("ville"));
+				Patient patient = new Patient(resultSet.getInt(1), resultSet.getString("nom"),
+						resultSet.getString("prenom"), resultSet.getString("naissance"), resultSet.getString("adresse"),
+						resultSet.getString("pays"), resultSet.getString("ville"));
 				listPatient.add(patient);
-				System.out.println(resultSet.getString("nom") + "\t" + resultSet.getString("prenom"));
+				System.out.println(resultSet.getString(1) + "\t" + resultSet.getString("nom") + "\t"
+						+ resultSet.getString("prenom"));
 			}
 
 		} catch (SQLException e) {
