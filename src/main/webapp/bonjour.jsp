@@ -29,8 +29,8 @@
 	%>
 	<%
 		s = request.getParameter("chaine");
-	out.println(s + "<br>");
-	out.println(wordCount(s) + " words");
+		out.println(s + "<br>");
+		out.println(wordCount(s) + " words");
 	%>
 </body>
 </html>

@@ -18,9 +18,11 @@
         <li class="nav-item">
           <a class="nav-link" href="listepatient.jsp">Patient</a>
         </li>
-        
         <li class="nav-item">
           <a class="nav-link" href="listerdv.jsp">RDV</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="listeville.jsp">Ville</a>
         </li>
         
         
