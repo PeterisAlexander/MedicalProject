@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
+<%@ page import="medical.m2i.model.*" %>
+<%@ page import="medical.m2i.dao.VilleDao" %>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -22,8 +28,8 @@
                 <input class="form-control" type="text" name="nom" placeholder="Votre nom" required>
             </div>
             <div class="form-line mb-4">
-                <label>Prénom *</label>
-                <input class="form-control" type="text" name="prenom" placeholder="Votre prénom" required>
+                <label>PrÃ©nom *</label>
+                <input class="form-control" type="text" name="prenom" placeholder="Votre prÃ©nom" required>
             </div>
 
             <div class="form-line mb-4">
@@ -48,8 +54,8 @@
                 <label class="form-label">Ville *</label>
                 <div id="cities-content" style="width: 59%;float: right">
                     <select class="form-select" name="ville" required id="ville">
-                        <option value="par">Paris</option>
-                        <option value="lil">Lille</option>
+                     <option value="paris">Paris</option>     
+                    
                     </select>
                 </div>
             </div>

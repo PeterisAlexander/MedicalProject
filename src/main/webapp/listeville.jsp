@@ -3,7 +3,6 @@
 <%@ page import="java.util.*" %>
 <%@ page import="medical.m2i.model.*" %>
 <%@ page import="medical.m2i.dao.VilleDao" %>
-<%@ page import="medical.m2i.model.*" %>
 <!DOCTYPE html>
 <html>
 <head>

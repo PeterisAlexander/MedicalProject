@@ -5,19 +5,34 @@ package medical.m2i.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * @author DESGOUILLES Pierre
  *
  */
+@Entity
 public class Patient implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@Column(nullable = false, length = 150)
 	private String nom;
+	@Column(nullable = false, length = 150)
 	private String prenom;
+	@Column(nullable = false, name = "datenaissance", length = 150)
 	private String naissance;
+	@Column(nullable = false, length = 150)
 	private String adresse;
+	@Column(nullable = false, length = 150)
 	private String pays;
+	@Column(nullable = false, length = 150)
 	private String ville;
 
 	/**

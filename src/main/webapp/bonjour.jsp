@@ -9,7 +9,7 @@
 <body>
 
 <form name="test" action="" method="post">
-	<input type="text" name="chaine">
+	<input type="text" name="chaine" value="bonjour pierre">
 	<input type="submit" value="Submit" id="button-1"/>
 </form>
 	<h1>Page Bonjour</h1>
