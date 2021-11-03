@@ -1,27 +1,30 @@
 package medical.m2i.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * @author DESGOUILLES Pierre
+ *
+ */
 @Entity
-public class Ville implements Serializable {
-
-	private static final long serialVersionUID = 1L;
-
+//@NamedNativeQuery(name = "Ville.findAll", query = "SELECT v FROM Ville v")
+public class Ville {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	@Column(nullable = false, length = 150)
+	private String pays;
+
+	@Column(nullable = false, length = 150)
 	private String nom;
 
 	@Column(nullable = false, length = 150)
-	private Integer code_postal;
+	private String code_postal;
 
 	public Ville() {
 		// TODO Auto-generated constructor stub
@@ -32,9 +35,10 @@ public class Ville implements Serializable {
 	 * @param nom
 	 * @param code_postal
 	 */
-	public Ville(Integer id, String nom, Integer code_postal) {
+	public Ville(Integer id, String pays, String nom, String code_postal) {
 		super();
 		this.id = id;
+		this.pays = pays;
 		this.nom = nom;
 		this.code_postal = code_postal;
 	}
@@ -54,6 +58,20 @@ public class Ville implements Serializable {
 	}
 
 	/**
+	 * @return the pays
+	 */
+	public String getPays() {
+		return pays;
+	}
+
+	/**
+	 * @param pays the pays to set
+	 */
+	public void setPays(String pays) {
+		this.pays = pays;
+	}
+
+	/**
 	 * @return the nom
 	 */
 	public String getNom() {
@@ -70,14 +88,14 @@ public class Ville implements Serializable {
 	/**
 	 * @return the code_postal
 	 */
-	public Integer getCode_postal() {
+	public String getCode_postal() {
 		return code_postal;
 	}
 
 	/**
 	 * @param code_postal the code_postal to set
 	 */
-	public void setCode_postal(Integer code_postal) {
+	public void setCode_postal(String code_postal) {
 		this.code_postal = code_postal;
 	}
 

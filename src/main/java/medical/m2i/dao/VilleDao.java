@@ -1,73 +1,99 @@
 package medical.m2i.dao;
 
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
 import medical.m2i.model.Ville;
 
 public class VilleDao {
 
-	private Properties db = new Properties();
+	EntityManagerFactory emf;
+	EntityManager em;
 
-	public List<Ville> getVilles() throws ClassNotFoundException {
-		try {
-			db.load(getClass().getResourceAsStream("connectiondb.properties"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		String url = db.getProperty("url");
-		String user = db.getProperty("user");
-		String password = db.getProperty("password");
-
-		String GET_ALL_VILLE = "SELECT * from ville";
-
-		List<Ville> listVille = new ArrayList<Ville>();
-
-		Class.forName("com.mysql.jdbc.Driver");
-
-		try (Connection connection = DriverManager.getConnection(url, user, password);
-				// Creation du statement utilise pour la connection object
-				Statement statement = connection.createStatement()) {
-
-			ResultSet resultSet = statement.executeQuery(GET_ALL_VILLE);
-
-			while (resultSet.next()) {
-				Ville ville = new Ville(resultSet.getInt(1), resultSet.getString("nom"),
-						resultSet.getInt("code_postal"));
-				listVille.add(ville);
-				System.out.println(resultSet.getString(1) + "\t" + resultSet.getString("nom") + "\t"
-						+ resultSet.getString("code_postal"));
-			}
-
-		} catch (SQLException e) {
-			// process sql exception
-			printSQLException(e);
-		}
-
-		return listVille;
+	public VilleDao() {
+		super();
+		emf = Persistence.createEntityManagerFactory("medical7");
+		em = emf.createEntityManager();
 	}
 
-	private void printSQLException(SQLException ex) {
-		for (Throwable e : ex) {
-			if (e instanceof SQLException) {
-				e.printStackTrace(System.err);
-				System.err.println("SQLState: " + ((SQLException) e).getSQLState());
-				System.err.println("Error Code: " + ((SQLException) e).getErrorCode());
-				System.err.println("Message: " + e.getMessage());
-				Throwable t = ex.getCause();
-				while (t != null) {
-					System.out.println("Cause: " + t);
-					t = t.getCause();
-				}
-			}
+	public int registerVille(Ville ville) throws ClassNotFoundException {
+		int id = 0;
+
+		// Récupération d’une transaction
+		EntityTransaction tx = em.getTransaction();
+		// Début des modifications
+		try {
+			tx.begin();
+			em.persist(ville);
+			tx.commit();
+			id = ville.getId();
+		} catch (Exception e) {
+
+			tx.rollback();
+		} finally {
+			// em.close();
+			// emf.close();
 		}
+		System.out.println("id de la ville : " + id);
+		return id;
+	}
+
+	public List<Ville> getVilles() throws ClassNotFoundException {
+
+		return em.createQuery("from Ville").getResultList();
+
+	}
+
+	public void deleteVille(int id) {
+		Ville v = em.find(Ville.class, id);
+		// Récupération d’une transaction
+		EntityTransaction tx = em.getTransaction();
+		// Début des modifications
+		try {
+			tx.begin();
+			em.remove(v);
+			tx.commit();
+		} catch (Exception e) {
+			tx.rollback();
+		} finally {
+			// em.close();
+			// emf.close();
+		}
+	}
+
+	public Ville getVille(int id) {
+		return em.find(Ville.class, id);
+	}
+
+	public void editVille(int id, String pays, String nom, String code_postal) {
+
+		Ville v = em.find(Ville.class, id);
+
+		// Récupération d’une transaction
+		EntityTransaction tx = em.getTransaction();
+
+		v.setNom(nom);
+		v.setPays(pays);
+		v.setCode_postal(code_postal);
+
+		// Début des modifications
+		try {
+			tx.begin();
+			em.persist(v);
+			tx.commit();
+		} catch (Exception e) {
+			tx.rollback();
+		} finally {
+			// em.close();
+			// emf.close();
+		}
+	}
+
+	public List<Ville> getVillesByPays(String pays) throws ClassNotFoundException {
+		return em.createNamedQuery("Ville.findByPaysName", Ville.class).setParameter("name", pays).getResultList();
 	}
 }

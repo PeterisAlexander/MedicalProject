@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.*" %>
-<%@ page import="medical.m2i.model.*" %>
-<%@ page import="medical.m2i.dao.VilleDao" %>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,7 +12,7 @@
 </head>
 
 <body>
-	<%@ include file="fragments/header.jsp" %>
+	<%@ include file="../fragments/header.jsp" %>
     <main class="container">
         <h1>Formulaire d'inscription</h1>
         <hr>
@@ -66,7 +62,7 @@
 
         </form>
     </main>
-    <%@ include file="fragments/footer.jsp" %>
+    <%@ include file="../fragments/footer.jsp" %>
 </body>
 
 </html>
