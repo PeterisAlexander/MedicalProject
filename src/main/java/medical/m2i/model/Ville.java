@@ -5,13 +5,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
  * @author DESGOUILLES Pierre
  *
  */
 @Entity
-//@NamedNativeQuery(name = "Ville.findAll", query = "SELECT v FROM Ville v")
+@NamedQueries({ @NamedQuery(name = "Ville.findByPaysName", query = "SELECT v FROM Ville v WHERE v.pays = :name"), })
 public class Ville {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

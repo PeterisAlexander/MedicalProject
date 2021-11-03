@@ -32,7 +32,7 @@
             </div>
             <div class="form-line mb-4">
                 <label>Ville *</label>
-                <input class="form-control" type="text" name="ville" placeholder="Votre ville" value="<%= v.getNom() %>" required>
+                <input class="form-control" type="text" name="nom" placeholder="Votre ville" value="<%= v.getNom() %>" required>
             </div>
 
             <div class="form-line mb-4">

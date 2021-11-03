@@ -18,7 +18,7 @@
         <hr>
         <div>
         </div>
-        <form name="monForm" action="http://localhost:8080/medical7/register" method="post">
+        <form name="monForm" action="http://localhost:8080/medical7/registerPatient" method="post">
             <div class="form-line mb-4">
                 <label class="form-label">Nom *</label>
                 <input class="form-control" type="text" name="nom" placeholder="Votre nom" required>
@@ -40,9 +40,11 @@
 
             <div class="form-line mb-4">
                 <label class="form-label">Pays *</label>
-                <select class="form-select" name="pays" required id="pays">
-                    <option value="fr">France</option>
-                    <option value="us">Etats Unis</option>
+                <select class="form-select" name="pays" required id="pays" onchange="load()">
+                    <option value="">Sélectionner pays</option>
+                    <option>FRANCE</option>
+                    <option>ESPAGNE</option>
+                    <option>ALLEMAGNE</option>
                 </select>
             </div>
 
@@ -50,8 +52,6 @@
                 <label class="form-label">Ville *</label>
                 <div id="cities-content" style="width: 59%;float: right">
                     <select class="form-select" name="ville" required id="ville">
-                     <option value="paris">Paris</option>     
-                    
                     </select>
                 </div>
             </div>

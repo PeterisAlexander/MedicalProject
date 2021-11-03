@@ -18,14 +18,14 @@
         <hr>
         <div>
         </div>
-        <form name="monForm" action="http://localhost:8080/medical7/register" method="post">
+        <form name="monForm" action="http://localhost:8080/medical7/registerVille" method="post">
             <div class="form-line mb-4">
                 <label class="form-label">Pays *</label>
                 <input class="form-control" type="text" name="pays" placeholder="Votre pays" required>
             </div>
             <div class="form-line mb-4">
                 <label>Ville *</label>
-                <input class="form-control" type="text" name="ville" placeholder="Votre ville" required>
+                <input class="form-control" type="text" name="nom" placeholder="Votre ville" required>
             </div>
 
             <div class="form-line mb-4">

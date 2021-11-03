@@ -14,7 +14,7 @@ import medical.m2i.model.Patient;
 /**
  * Servlet implementation class Test
  */
-@WebServlet("/register")
+@WebServlet("/registerPatient")
 public class PatientServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

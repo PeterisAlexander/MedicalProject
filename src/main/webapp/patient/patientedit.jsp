@@ -51,9 +51,9 @@ ArrayList<Ville> lv = new ArrayList<Ville>();
             <div class="form-line mb-4">
                 <label class="form-label">Pays *</label>
                 <select class="form-select" name="pays" required id="pays" onchange="load()">
-                   	<option <% if( p.getPays().equals( "France" ) ) out.println("selected");  %>>France</option>
-                    <option <% if( p.getPays().equals( "Belgique" ) ) out.println("selected");  %>>Belgique</option>
-                    <option <% if( p.getPays().equals( "Etats Unis" ) ) out.println("selected");  %>>Etats Unis</option>
+                   	<option <% if( p.getPays().equals( "FRANCE" ) ) out.println("selected");  %>>FRANCE</option>
+                    <option <% if( p.getPays().equals( "ESPAGNE" ) ) out.println("selected");  %>>ESPAGNE</option>
+                    <option <% if( p.getPays().equals( "ALLEMAGNE" ) ) out.println("selected");  %>>ALLEMAGNE</option>
                 </select>
             </div>
 
