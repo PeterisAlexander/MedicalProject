@@ -2,6 +2,7 @@ package medical.m2i.controller.patient;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,7 +40,9 @@ public class PatientServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		// response.getWriter().append("Served at: ").append(request.getContextPath());
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/patient/patientregister.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**
@@ -71,18 +74,6 @@ public class PatientServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-//		response.setContentType(" text / html ");
-//		PrintWriter out = response.getWriter();
-//		out.println("<html >");
-//		out.println("<body >");
-//		out.println("<h1 > Bonjour " + prenom + " " + nom + " ! </h1 >");
-//		out.println("<p>Vous êtes né le : " + naissance + "</p>"); // la date de naissance
-//		out.println("<p>Votre adresse est : " + adresse + "</p>"); // � la place des **** : adresse + pays + ville
-//		out.println("<p>Votre pays est : " + pays + "</p>"); // � la place des **** : adresse + pays + ville
-//		out.println("<p>Votre ville est : " + ville + "</p>"); // � la place des **** : adresse + pays + ville
-//		out.println(" </body >");
-//		out.println(" </html >");
 
 		response.sendRedirect(request.getContextPath() + "/ListPatientServlet");
 	}

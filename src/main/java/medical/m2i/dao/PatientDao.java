@@ -1,25 +1,19 @@
 package medical.m2i.dao;
 
 import java.util.List;
-import java.util.Properties;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 
 import medical.m2i.model.Patient;
 
 public class PatientDao {
 
-	private Properties db = new Properties();
-	EntityManagerFactory emf;
 	EntityManager em;
 
 	public PatientDao() {
 		super();
-		emf = Persistence.createEntityManagerFactory("medical7");
-		em = emf.createEntityManager();
+		em = DbConnection.getInstance();
 
 	}
 

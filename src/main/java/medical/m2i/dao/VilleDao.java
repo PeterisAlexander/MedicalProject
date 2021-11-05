@@ -3,21 +3,17 @@ package medical.m2i.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 
 import medical.m2i.model.Ville;
 
 public class VilleDao {
 
-	EntityManagerFactory emf;
 	EntityManager em;
 
 	public VilleDao() {
 		super();
-		emf = Persistence.createEntityManagerFactory("medical7");
-		em = emf.createEntityManager();
+		em = DbConnection.getInstance();
 	}
 
 	public int registerVille(Ville ville) throws ClassNotFoundException {

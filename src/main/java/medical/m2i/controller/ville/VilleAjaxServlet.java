@@ -15,7 +15,7 @@ import medical.m2i.dao.VilleDao;
 /**
  * Servlet implementation class VilleAjaxServlet
  */
-@WebServlet("/VilleAjaxServlet")
+@WebServlet("/villesajax")
 public class VilleAjaxServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -46,7 +46,7 @@ public class VilleAjaxServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/villesajax.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/ville/villesajax.jsp");
 		dispatcher.forward(request, response);
 	}
 
