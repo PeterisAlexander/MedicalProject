@@ -49,13 +49,30 @@ public class UsersBean implements Serializable {
 		this.user = user;
 	}
 
+	public String MD5(String md5) {
+		try {
+			java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
+			byte[] array = md.digest(md5.getBytes());
+			StringBuffer sb = new StringBuffer();
+			for (int i = 0; i < array.length; ++i) {
+				sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1, 3));
+			}
+			return sb.toString();
+		} catch (java.security.NoSuchAlgorithmException e) {
+		}
+		return null;
+	}
+
 	public String saveUser() throws ClassNotFoundException {
 		UserDao uDao = new UserDao();
 		user.setRoles("ROLE_USER");
-		user.setPassword("81dc9bdb52d04dc20036dbd8313ed055");
+		user.setPassword(MD5("1234"));
 		user.setName("Michel");
 		user.setPhotouser("user1.png");
 		uDao.registerUser(user);
+
+		this.listeUsers = uDao.getUsers();
+
 		System.out.println(user.getUsername());
 		return "/done.xhtml?faces-redirect=true";
 	}

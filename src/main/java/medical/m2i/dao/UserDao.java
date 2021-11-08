@@ -28,6 +28,7 @@ public class UserDao {
 			em.persist(user);
 			tx.commit();
 			id = user.getId();
+			System.out.println("id de l'utilisateur : " + id);
 		} catch (Exception e) {
 
 			tx.rollback();
@@ -35,7 +36,7 @@ public class UserDao {
 			// em.close();
 			// emf.close();
 		}
-		System.out.println("id de l'utilisateur : " + id);
+
 		return id;
 	}
 

@@ -3,6 +3,8 @@ package medical.m2i.model;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -11,7 +13,8 @@ import javax.persistence.NamedQuery;
 @NamedQueries({
 		@NamedQuery(name = "User.findByUsernameAndPassword", query = "SELECT u FROM User u WHERE u.username = :username AND u.password = md5( :password )"), })
 public class User {
-	private int id;
+
+	private Integer id;
 	private String username;
 	private String email;
 	private String roles;
@@ -20,12 +23,13 @@ public class User {
 	private String photouser;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false)
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
